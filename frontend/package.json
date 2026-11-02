@@ -4,7 +4,9 @@
   "private": true,
   "description": "Dummy 8th Wall WebAR frontend with WebSocket VPS bridge",
   "scripts": {
-    "start": "python3 -m http.server 8080",
+    "start": "npm run serve",
+    "serve": "node serve.mjs",
+    "build": "node build.mjs",
     "test": "echo \"No frontend tests configured\""
   }
 }

@@ -34,7 +34,9 @@ IndoorNav_8th/
 ## Wichtige Konfigurationsdateien
 
 - **`frontend/package.json`**  
-  Definiert das Dummy-Frontend-Projekt und den lokalen Start per Static Server (`python3 -m http.server 8080`).
+  Definiert das Dummy-Frontend-Projekt sowie die von der 8th Wall Desktop App erwarteten `serve`- und `build`-Befehle.
+- **`frontend/serve.mjs`**  
+  Startet den statischen Entwicklungsserver und unterstützt sowohl `PORT=8888` als auch `--port 8888`.
 - **`backend/build.gradle.kts`**  
   Enthält Kotlin-, Ktor- und WebSocket-Abhängigkeiten sowie Application-/Test-Konfiguration.
 - **`.gitignore`**  
@@ -87,12 +89,12 @@ Danach im Browser öffnen:
 http://localhost:8080
 ```
 
-### 3) 8th Wall Hinweis
+### 3) 8th Wall Desktop App
 
-In `frontend/index.html` muss für echte 8th Wall-Ausführung der Platzhalter ersetzt werden:
+In der 8th Wall Desktop App den Ordner `frontend/` als Non-Studio-Projekt öffnen. Die App erkennt `frontend/package.json` und startet für die Vorschau:
 
-```html
-<script async src="https://apps.8thwall.com/xrweb?appKey=YOUR_8THWALL_APP_KEY"></script>
+```bash
+npm run serve -- --port 8888
 ```
 
-`YOUR_8THWALL_APP_KEY` durch den echten App-Key ersetzen.
+Der Server ist damit unter `http://localhost:8888` erreichbar. Der Entwicklungsadapter `dev8.js` ist bereits in `frontend/index.html` eingebunden. Der gehostete App-Key-Loader bleibt dort auskommentiert und kann bei Bedarf später wieder aktiviert werden.
