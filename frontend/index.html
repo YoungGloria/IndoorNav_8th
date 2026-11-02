@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IndoorNav WebAR Dummy</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script async src="https://apps.8thwall.com/xrweb?appKey=YOUR_8THWALL_APP_KEY"></script>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #10131a;
+        color: #fff;
+      }
+      #status {
+        position: fixed;
+        top: 12px;
+        left: 12px;
+        z-index: 10;
+        padding: 8px 12px;
+        background: rgba(0, 0, 0, 0.55);
+        border-radius: 8px;
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="status">WebSocket: wird verbunden…</div>
+    <a-scene
+      xrweb
+      renderer="colorManagement: true"
+      embedded
+      vr-mode-ui="enabled: false">
+      <a-entity id="camera" camera position="0 1.6 0"></a-entity>
+
+      <a-entity id="vps-anchor" position="0 0 -1">
+        <a-box color="#4CC3D9" depth="0.2" height="0.2" width="0.2"></a-box>
+        <a-text value="Dummy VPS Pose" position="-0.5 0.3 0" color="#ffffff"></a-text>
+      </a-entity>
+
+      <a-plane rotation="-90 0 0" width="12" height="12" color="#4a5f7a"></a-plane>
+      <a-sky color="#20252f"></a-sky>
+    </a-scene>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+  </html>
